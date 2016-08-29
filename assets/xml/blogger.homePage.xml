@@ -1,0 +1,133 @@
+<b:if cond='data:blog.url == data:blog.homepageUrl'>
+  <div class='container-fluid'>
+    <section class='row'>
+      <article class='col-md-7'>
+        <h1 class='text-center'>Heru Sularto (eR)</h1>
+        <hr/>
+        <div class='col-md-4 col-sm-3 col-xs-6 pull-right'>
+          <img class='img-responsive img-rounded' src='http://code.eru.web.id/assets/images/hs.svg'/>
+        </div>
+        <p>
+          Namaku Heru Sularto. Kamu bisa memanggilku dengan panggilan Heru, HS, atau eR.
+        </p>
+        <p>
+          Egois, kurang inisiatif, gak mutu, nge-game thok, tidak punya &quot;power&quot;, goblok, ramah, tinggi, kurus, cakep, santai, totalitas, mental juang tinggi, progressnya cepat; kata mereka yang mengenalku seperti itulah diriku dulu. Itu dulu, bagaimana dengan diriku yang sekarang? Entahlah. 
+        </p>
+        <p>
+          Hal yang paling aku sukai adalah bermain futsal, menjelajahi dunia nyata dan maya, menikmati alam, dan beberapa hal lain yang lebih baik tidak aku sebutkan. Ada hal-hal yang membuatku tiba-tiba sedih tanpa alasan ketika mencium aroma tertentu dan saat berada di suhu tertentu, kata mereka itu adalah hypophrenia.
+        </p>
+        <p>Ustadz-ustadz sering menyampaikan dalam kajiannya bahwa menurut guru-guru beliau, kita sudah memasuki akhir zaman. Maka berusahalah semampumu untuk mengejar kafilah orang-orang sholih yang akan kembali ke tanah air yang sangat luas di akhirat sana. Aku berharap lewat blog ini aku bisa mengejar mereka. Karena di sinilah salah satu kemampuanku yang bisa aku andalkan.
+        </p>
+      </article>
+      <b:section class='col-md-5' id='front1' showaddelement='no'>
+        <b:widget id='Blog0' locked='true' title='Posting Blog' type='Blog' version='1' visible='true'>
+          <b:includable id='main'>
+            <h2>Tulisan Terakhir</h2>
+            <ul class='list-group'>
+              <b:loop values='data:posts' var='post'>
+                <li class='list-group-item'>
+                  <span class='badge'><data:post.timestamp/></span>
+                  <a expr:href='data:post.url'><data:post.title/></a>
+                </li>
+              </b:loop>
+            </ul>
+          </b:includable>
+          <b:includable id='backlinkDeleteIcon' var='backlink'/>
+          <b:includable id='backlinks' var='post'/>
+          <b:includable id='comment-form' var='post'/>
+          <b:includable id='commentDeleteIcon' var='comment'/>
+          <b:includable id='comment_count_picker' var='post'/>
+          <b:includable id='comment_picker' var='post'/>
+          <b:includable id='comments' var='post'/>
+          <b:includable id='feedLinks'/>
+          <b:includable id='feedLinksBody' var='links'/>
+          <b:includable id='iframe_comments' var='post'/>
+          <b:includable id='mobile-index-post' var='post'/>
+          <b:includable id='mobile-main' var='top'/>
+          <b:includable id='mobile-nextprev'/>
+          <b:includable id='mobile-post' var='post'/>
+          <b:includable id='nextprev'/>
+          <b:includable id='post' var='post'/>
+          <b:includable id='postQuickEdit' var='post'/>
+          <b:includable id='shareButtons' var='post'/>
+          <b:includable id='status-message'/>
+          <b:includable id='threaded-comment-form' var='post'/>
+          <b:includable id='threaded_comment_js' var='post'/>
+          <b:includable id='threaded_comments' var='post'/>
+        </b:widget>
+      </b:section>
+    </section>
+    <hr/>
+    <b:section class='row' id='front2' showaddelement='no'>
+      <b:widget id='Label0' locked='false' title='Label' type='Label' version='1' visible='true'>
+        <b:includable id='main'>
+          <b:loop values='data:labels' var='label'>
+            <b:if cond='data:label.name == &quot;Heru Sularto (eR)&quot;'>
+              <div class='col-md-2 col-sm-4 col-xs-12'>
+                <h4><a href='http://h.eru.web.id/search/label/Heru%20Sularto%20(eR)'>Heru Sularto (eR)</a></h4>
+                <p>Sampai saat ini aku baru bisa menjelaskan <data:label.count/> hal tentang diriku.</p>
+              </div>
+            </b:if>
+            <b:if cond='data:label.name == &quot;Kehidupanku&quot;'>
+              <div class='col-md-2 col-sm-4 col-xs-12'>
+                <h4><a href='http://h.eru.web.id/search/label/Kehidupanku'>Kehidupanku</a></h4>
+                <p>Ada <data:label.count/> kisah dalam hidupku yang aku tak sanggup untuk tidak menuliskannya.</p>
+              </div>
+            </b:if>
+            <b:if cond='data:label.name == &quot;Sahabat&quot;'>
+              <div class='col-md-2 col-sm-4 col-xs-12'>
+                <h4><a href='http://h.eru.web.id/search/label/Sahabat'>Sahabatku</a></h4>
+                <p>Saat ini baru bisa memuat <data:label.count/> tulisan mengenai sahabatku. Apakah kamu ada di situ? Jika belum, maafkanlah aku.</p>
+              </div>
+            </b:if>
+            <b:if cond='data:label.name == &quot;Nasehat&quot;'>
+              <div class='col-md-2 col-sm-4 col-xs-12'>
+                <h4><a href='http://h.eru.web.id/search/label/Nasehat'>Nasehatnya</a></h4>
+                <p>Bacalah nasehatnya, syukur-syukur <data:label.count/> nasehat yang ada kamu baca semuanya.</p>
+              </div>
+            </b:if>
+            <b:if cond='data:label.name == &quot;Garapan&quot;'>
+              <div class='col-md-2 col-sm-4 col-xs-12'>
+                <h4><a href='http://h.eru.web.id/search/label/Garapan'>Garapanku</a></h4>
+                <p>Dari <data:label.count/> garapan yang ada, sebagian sudah selesai dan sebagian belum.</p>
+              </div>
+            </b:if>
+            <b:if cond='data:label.name == &quot;Blogger&quot;'>
+              <div class='col-md-2 col-sm-4 col-xs-12'>
+                <h4><a href='http://h.eru.web.id/search/label/Blogger'>Blogger Tips</a></h4>
+                <p>Ada <data:label.count/> tulisan yang membahas trik dan tips Blogger. Yuk disimak.</p>
+              </div>
+            </b:if>
+          </b:loop>
+        </b:includable>
+      </b:widget>
+    </b:section>
+    <hr/>
+    <section class='row'>
+      <div class='col-md-6 col-md-offset-3 well'>
+        <h4 class='text-center'>Mail Subs</h4>
+      </div>
+    </section>
+    <section class='row'>
+      <div class='col-md-4'>
+        <h3>Missing Piece&#39;s Story</h3>
+        <p>The Missing Piece karya Shel Silverstein mengisahkan sebuah makhluk berbentuk mirip lingkaran yang kehilangan &quot;bagian diri&quot;nya. Dia terus mencari. Namun setelah ia menemukan bagian dirinya yang hilang, dia tidak merasa bahagia? Mengapa? Simak kisahnya di blog berikut.</p>
+        <p>missingpiecestory.blogspot.com</p>
+      </div>
+      <div class='col-md-4'>
+        <h3>Lorem Ipsum</h3>
+        <p>Lorem ipsum dolor sit amet</p>
+        <p>...blogspot.com</p>
+      </div>
+      <div class='col-md-4'>
+        <h3>Dolor Sit Amet</h3>
+        <p>Lorem ipsum dolor sit amet</p>
+        <p>....blogspot.com</p>
+      </div>
+    </section>
+    <footer class='row well'>
+      Heru Sularto<br/>
+      herusularto[at]gmail.com<br/>
+    </footer>
+  </div>
+</b:if>
