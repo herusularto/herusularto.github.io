@@ -9,7 +9,7 @@
           <div class='btn-group' role='group' aria-label='category'>
             <b:loop values='data:labels' var='label'>
               <b:if cond='data:blog.url == data:label.url'>
-                <a expr:dir='data:blog.languageDirection' class='btn btn-default' role="button">
+                <a expr:dir='data:blog.languageDirection' class='btn btn-primary' role="button">
                   <data:label.name/>
                   <b:if cond='data:showFreqNumbers'>
                     <span dir='ltr' class='badge'><data:label.count/></span>
