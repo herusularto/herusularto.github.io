@@ -1,0 +1,33 @@
+<b:section id='coba3'>
+  <b:widget id='Label1' locked='false' title='Label' type='Label' visible='true'>
+    <b:includable id='main'>
+      <b:if cond='data:title != &quot;&quot;'>
+        <h2><data:title/></h2>
+      </b:if>
+      <div expr:class='&quot;widget-content &quot; + data:display + &quot;-label-widget-content&quot;'>
+        <b:if cond='data:display == &quot;list&quot;'>
+          <div class='btn-group' role='group' aria-label='category'>
+            <b:loop values='data:labels' var='label'>
+              <b:if cond='data:blog.url == data:label.url'>
+                <a expr:dir='data:blog.languageDirection' class='btn btn-default' role="button">
+                  <data:label.name/>
+                  <b:if cond='data:showFreqNumbers'>
+                    <span dir='ltr' class='badge'><data:label.count/></span>
+                  </b:if>
+                </a>
+                <b:else/>
+                <a expr:dir='data:blog.languageDirection' expr:href='data:label.url' class='btn btn-default' role="button">
+                  <data:label.name/> 
+                  <b:if cond='data:showFreqNumbers'>
+                    <span dir='ltr' class='badge'><data:label.count/></span>
+                  </b:if>
+                </a>
+              </b:if>
+            </b:loop>
+          </div>
+        </b:if>
+        <b:include name='quickedit'/>
+      </div>
+    </b:includable>
+  </b:widget>
+</b:section>
