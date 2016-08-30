@@ -1,0 +1,139 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="disabled"><a href="#"><strong>Pos</strong></a></li>
+  <li role="presentation" class="active"><a href="#recentPosts" aria-controls="recentPosts" role="tab" data-toggle="tab">Terbaru</a></li>
+  <li role="presentation"><a href="#topPosts" aria-controls="topPosts" role="tab" data-toggle="tab">Populer</a></li>
+  <li role="presentation"><a href="#allPosts" aria-controls="allPosts" role="tab" data-toggle="tab">Arsip</a></li>
+</ul>
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="recentPosts">
+    <div>
+      <script src='http://code.eru.web.id/assets/js/blogger.recentPostsSnippet.js'></script>
+      <script>var numposts = 5;var showpostdate = true;var showpostsummary = true;var numchars = 100;var standardstyling = true;
+      </script>
+      <script src="http://h.eru.web.id/feeds/posts/default?orderby=published&amp;alt=json-in-script&amp;callback=showrecentposts">
+      </script>
+    </div>
+    <noscript>Your browser does not support JavaScript!</noscript>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="topPosts">
+    <b:section id='coba1'>
+      <b:widget id='PopularPosts1' locked='false' title='Entri Populer' type='PopularPosts' visible='true'>
+        <b:includable id='main'>
+          <b:if cond='data:title != &quot;&quot;'><h2><data:title/></h2></b:if>
+          <div class='widget-content popular-posts'>
+            <ul>
+              <b:loop values='data:posts' var='post'>
+                <li>
+                  <b:if cond='!data:showThumbnails'>
+                    <b:if cond='!data:showSnippets'>
+                      <!-- (1) No snippet/thumbnail -->
+                      <a expr:href='data:post.href'><data:post.title/></a>
+                      <b:else/>
+                      <!-- (2) Show only snippets -->
+                      <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
+                      <div class='item-snippet'><data:post.snippet/></div>
+                    </b:if>
+                    <b:else/>
+                    <!-- (3) Show only thumbnails or (4) Snippets and thumbnails. -->
+                    <div expr:class='data:showSnippets ? &quot;item-content&quot; : &quot;item-thumbnail-only&quot;'>
+                      <b:if cond='data:post.featuredImage.isResizable or data:post.thumbnail'>
+                        <div class='item-thumbnail'>
+                          <a expr:href='data:post.href' target='_blank'>
+                            <b:with value='data:post.featuredImage.isResizable                                  ? resizeImage(data:post.featuredImage, 72, &quot;1:1&quot;)                                  : data:post.thumbnail' var='image'>
+                              <img alt='' border='0' expr:src='data:image'/>
+                            </b:with>
+                          </a>
+                        </div>
+                      </b:if>
+                      <div class='item-title'><a expr:href='data:post.href'><data:post.title/></a></div>
+                      <b:if cond='data:showSnippets'>
+                        <div class='item-snippet'><data:post.snippet/></div>
+                      </b:if>
+                    </div>
+                    <div style='clear: both;'/>
+                  </b:if>
+                </li>
+              </b:loop>
+            </ul>
+            <b:include name='quickedit'/>
+          </div>
+        </b:includable>
+      </b:widget>
+    </b:section>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="allPosts">
+    <b:section id='coba2'>
+      <b:widget id='BlogArchive1' locked='false' title='Arsip Blog' type='BlogArchive' visible='true'>
+        <b:includable id='main'>
+          <b:if cond='data:title != &quot;&quot;'>
+            <h2><data:title/></h2>
+          </b:if>
+          <div class='widget-content'>
+            <div id='ArchiveList'>
+              <div expr:id='data:widget.instanceId + &quot;_ArchiveList&quot;'>
+                <b:include cond='data:style == &quot;HIERARCHY&quot;' data='data' name='interval'/>
+                <b:include cond='data:style == &quot;FLAT&quot;' data='data' name='flat'/>
+                <b:include cond='data:style == &quot;MENU&quot;' data='data' name='menu'/>
+              </div>
+            </div>
+            <b:include name='quickedit'/>
+          </div>
+        </b:includable>
+        <b:includable id='flat' var='data'>
+          <ul class='flat'>
+            <b:loop values='data:data' var='i'>
+              <li class='archivedate'>
+                <a expr:href='data:i.url'><data:i.name/></a> (<data:i.post-count/>)
+              </li>
+            </b:loop>
+          </ul>
+        </b:includable>
+        <b:includable id='interval' var='intervalData'>
+          <b:loop values='data:intervalData' var='interval'>
+            <ul class='hierarchy'>
+              <li expr:class='&quot;archivedate &quot; + data:interval.expclass'>
+                <b:include cond='data:interval.toggleId' data='interval' name='toggle'/>
+                <a class='post-count-link' expr:href='data:interval.url'>
+                  <data:interval.name/>
+                </a>
+                <span class='post-count' dir='ltr'>(<data:interval.post-count/>)</span>
+                <b:include cond='data:interval.data' data='interval.data' name='interval'/>
+                <b:include cond='data:interval.posts' data='interval.posts' name='posts'/>
+              </li>
+            </ul>
+          </b:loop>
+        </b:includable>
+        <b:includable id='menu' var='data'>
+          <select expr:id='data:widget.instanceId + &quot;_ArchiveMenu&quot;'>
+            <option value=''><data:title/></option>
+            <b:loop values='data:data' var='i'>
+              <option expr:value='data:i.url'><data:i.name/> (<data:i.post-count/>)</option>
+            </b:loop>
+          </select>
+        </b:includable>
+        <b:includable id='posts' var='posts'>
+          <ul class='posts'>
+            <b:loop values='data:posts' var='post'>
+              <li><a expr:href='data:post.url'><data:post.title/></a></li>
+            </b:loop>
+          </ul>
+        </b:includable>
+        <b:includable id='toggle' var='interval'>
+          <a class='toggle' href='javascript:void(0)'>
+            <span expr:class='&quot;zippy&quot; + (data:interval.expclass == &quot;expanded&quot; ? &quot; toggle-open&quot; : &quot;&quot;)'>
+              <b:if cond='data:interval.expclass == &quot;expanded&quot;'>
+                &#9660;&#160;
+                <b:elseif cond='data:blog.languageDirection == &quot;rtl&quot;'/>
+                &#9668;&#160;
+                <b:else/>
+                &#9658;&#160;
+              </b:if>
+            </span>
+          </a>
+        </b:includable>
+      </b:widget>
+    </b:section>
+  </div>
+
+</div>
